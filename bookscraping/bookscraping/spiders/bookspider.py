@@ -1,5 +1,6 @@
 import scrapy
 from bookscraping.items import BookItem
+import random
 
 class BookspiderSpider(scrapy.Spider):
     name = "bookspider"
