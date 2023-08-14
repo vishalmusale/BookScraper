@@ -20,6 +20,17 @@ SCRAPEOPS_API_KEY = 'f222495e-5bcc-4b06-9df6-cfac6417e7d3' # signup at https://s
 SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = 'https://headers.scrapeops.io/v1/user-agents'
 SCRAPEOPS_FAKE_USER_AGENT_ENABLED = True
 SCRAPEOPS_NUM_RESULTS = 5
+SCRAPEOPS_PROXY_ENABLED = True
+
+
+ROTATING_PROXY_LIST = [
+    "172.67.187.242:80",
+    "104.16.207.86:80",
+    "64.90.48.27:24650",
+    "67.207.75.252:58927"
+]
+
+# ROTATING_PROXY_LIST_PATH = "/my/path/proxies.txt'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "bookscraping (+http://www.yourdomain.com)"
@@ -60,7 +71,9 @@ ROBOTSTXT_OBEY = False
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
    # "bookscraping.middlewares.BookscrapingDownloaderMiddleware": 543,
-   'bookscraping.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 400,
+    'bookscraping.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 400,
+    # 'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+    # 'rotating_proxies.middlewares.BanDetectionMiddleware': 620,
 }
 
 # Enable or disable extensions
